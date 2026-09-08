@@ -22,6 +22,7 @@ function saveState(){
     var qs = QUESTIONS.filter(function(q){return q.ch===ch.id;});
     navHtml += '<a href="#'+ch.id+'"><span>'+ch.title+'</span><span class="count">'+qs.length+'</span></a>';
   });
+  navHtml += '<a href="#appendix" style="opacity:.7"><span>ภาคผนวก: ข้อที่ว่างในต้นฉบับ</span></a>';
   sideNav.innerHTML = navHtml;
 
   var total = QUESTIONS.length;
@@ -85,9 +86,26 @@ function saveState(){
       qs.forEach(function(q, idx){ html += renderCard(q, idx); });
       html += '</section>';
     });
+    html += renderAppendix();
     chaptersEl.innerHTML = html;
     updateScoreBar();
   }
+  function renderAppendix(){
+    if(typeof SKIPPED_BLOCK_2_1==='undefined' || typeof SKIPPED_BLOCK_2_2==='undefined') return '';
+    var n21 = 70, n22 = 85;
+    var used21 = n21 - SKIPPED_BLOCK_2_1.length;
+    var used22 = n22 - SKIPPED_BLOCK_2_2.length;
+    var html = '<section class="chapter" id="appendix">';
+    html += '<h2>ภาคผนวก: ความครอบคลุมของข้อสอบต้นฉบับ</h2>';
+    html += '<div class="intro" style="margin-top:0">';
+    html += '<p>ไฟล์ recall ต้นฉบับเป็นตารางที่ให้นิสิตหลายคนช่วยกันกรอกความจำหลังสอบ ทำให้<b>มีข้อว่างจำนวนมาก</b> (ไม่ใช่ทุกคนจำได้ทุกข้อ) หน้านี้รวมเฉพาะข้อที่มีเนื้อหาพอวิเคราะห์ได้เท่านั้น รายการด้านล่างคือเลขข้อที่ <b>"ว่างเปล่าในไฟล์ต้นฉบับ"</b> (ไม่มีโจทย์/คำตอบเขียนไว้เลย) แสดงไว้เพื่อความโปร่งใสว่าไม่มีการตัดข้อที่มีเนื้อหาออกไปโดยไม่แจ้ง</p>';
+    html += '<p><b>Block 2.1:</b> มีเนื้อหาให้ทำ '+used21+' จากทั้งหมด '+n21+' ข้อ (ข้อ 11 และ 12 เป็นโจทย์เรื่องเดียวกันจึงรวมเป็นการ์ดเดียว) — ข้อที่ว่างเปล่า: <code>'+SKIPPED_BLOCK_2_1.join(', ')+'</code></p>';
+    html += '<p><b>Block 2.2:</b> มีเนื้อหาให้ทำ '+used22+' จากทั้งหมด '+n22+' ข้อ — ข้อที่ว่างเปล่า: <code>'+SKIPPED_BLOCK_2_2.join(', ')+'</code></p>';
+    html += '<p style="margin-bottom:0">หากใครจำโจทย์ข้อที่ขาดหายไปเหล่านี้ได้ สามารถเพิ่มเข้าไปในไฟล์ <code>data.js</code> ได้เลย (ดูรูปแบบจากข้ออื่นในไฟล์เดียวกัน)</p>';
+    html += '</div></section>';
+    return html;
+  }
+
   renderAll();
 
   function updateScoreBar(){

@@ -452,6 +452,18 @@ const QUESTIONS = [
  '<p>แนวทางมาตรฐาน: ต้องให้ <b>Broad-spectrum antibiotic ที่ครอบคลุมเชื้อ Pseudomonas (เช่น Piperacillin-tazobactam, Cefepime, Meropenem) ทันทีภายใน 1 ชั่วโมง</b> หลังเจาะเลือดส่ง culture โดย<b>ไม่ต้องรอผลเพาะเชื้อ</b> — Antifungal จะพิจารณาเพิ่มก็ต่อเมื่อไข้ไม่ลดหลังให้ยาปฏิชีวนะไปแล้ว 4-7 วัน (persistent febrile neutropenia)</p>',
  ref:'07_Leukemia-Lymphoma-MPD/ใบงาน  Acute leukemia กพ 2564.pdf'},
 
+{ch:'ch6', src:'Block 2.2 ข้อ 57', topic:'Erythrocytosis (MPN)', incomplete:true,
+ stem:'โจทย์เป็นเคส erythrocytosis (ข้อมูลอาการ/ผลแล็บที่จำได้ไม่ครบถ้วน)',
+ choices:['Polycythemia Vera (PV)','Secondary erythrocytosis (เช่นจากสูบบุหรี่/ขาดออกซิเจนเรื้อรัง)','Relative erythrocytosis จากภาวะขาดน้ำ','Chronic Myeloid Leukemia (CML)'],
+ correctIdx:0, answer:'ข้อมูลไม่ครบพอฟันธง แต่ถ้าเป็นแนวเดียวกับข้ออื่นในชุดข้อสอบนี้ (ข้อ 59, 65) มักเน้น Polycythemia Vera',
+ explain:'<p>ข้อนี้นิสิตที่รวบรวมข้อสอบจำได้เพียงหัวข้อว่าเป็นเคส "erythrocytosis" โดยไม่มีรายละเอียดอาการ/ผลแล็บเพิ่มเติม จึงไม่สามารถวิเคราะห์เจาะจงได้ แนวทางการแยกโรคกลุ่ม erythrocytosis โดยทั่วไป:</p><ul>'+
+ '<li><b>Polycythemia Vera (PV):</b> Hct/Hb สูงจาก JAK2 mutation มักมี splenomegaly, aquagenic pruritus, WBC/Platelet อาจสูงร่วมด้วย (ดูรายละเอียดในข้อ Block 2.2 ข้อ 65)</li>'+
+ '<li><b>Secondary erythrocytosis:</b> EPO สูงจากสาเหตุภายนอก เช่น การสูบบุหรี่เรื้อรัง, COPD, โรคหัวใจพิการแต่กำเนิดชนิดตัวเขียว, เนื้องอกหลั่ง EPO (ดูรายละเอียดในข้อ Block 2.2 ข้อ 59)</li>'+
+ '<li><b>Relative (Spurious) erythrocytosis:</b> ปริมาตรพลาสมาลดลงจากภาวะขาดน้ำ ทำให้ Hct ดูสูงขึ้นทั้งที่จำนวน RBC จริงไม่ได้เพิ่ม</li></ul>'+
+ '<p>แนะนำอ่านทบทวนคู่กับข้อ 59 และ 65 ในบทนี้ ซึ่งมีรายละเอียดกรณีศึกษาที่ใกล้เคียงกันและมีข้อมูลครบถ้วนกว่า</p>',
+ note:'โจทย์ต้นฉบับมีเพียงหัวข้อสั้นๆ ไม่มีรายละเอียดอาการ/ผลแล็บ จึงไม่สามารถระบุคำตอบที่ชัดเจนได้ — รวมข้อนี้ไว้เพื่อความครบถ้วนของลำดับข้อสอบเท่านั้น',
+ ref:'07_Leukemia-Lymphoma-MPD/No slide MPD leukemia lymphoma 2569.pdf'},
+
 {ch:'ch6', src:'Block 2.2 ข้อ 58', topic:'CML workup',
  stem:'ให้รูป CML มา ถามว่าการส่งตรวจใดต่อไปนี้ "ไม่จำเป็น" ต่อการวินิจฉัย: 1.FISH หา BCR-ABL 2.Ph chromosome 3.Flow cytometry for leukemia 4.BM biopsy 5.aPTT/PT 6.D-dimer',
  choices:['1+2','2+3','3+4','4+5','5+6'],
@@ -851,3 +863,10 @@ const QUESTIONS = [
  ref:'12_Systemic-Infection-Malaria/Review of antimalarial drugs 1-69.pdf'},
 
 ];
+
+// ============================================================
+// รายการข้อที่ "ว่างเปล่า" ในไฟล์ recall ต้นฉบับ (ไม่มีนิสิตคนใดจำโจทย์/คำตอบได้)
+// ใส่ไว้เพื่อความโปร่งใส ยืนยันว่าไม่ได้มีการตัดข้อที่มีเนื้อหาออกไปโดยไม่แจ้ง
+// ============================================================
+const SKIPPED_BLOCK_2_1 = [1,2,10,16,21,23,24,26,29,33,34,36,38,47,49,50,53,54,55,56,57,61,66,68];
+const SKIPPED_BLOCK_2_2 = [2,4,5,10,11,12,13,19,21,24,27,29,30,31,33,34,35,42,46,50,51,54,56,60,61,63,70,72,73,74,75,77,78,79,80,81,82,83];
