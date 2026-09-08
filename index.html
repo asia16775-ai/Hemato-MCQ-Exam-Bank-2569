@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คลังข้อสอบ Hemato-ID Block 2 (เฉลยละเอียด)</title>
+<style>
+:root{
+  --bg:#f7f8fa; --card:#ffffff; --text:#1c2530; --muted:#5b6572; --border:#e2e6ea;
+  --accent:#0f766e; --accent-light:#ccfbf1; --accent-dark:#0b544e;
+  --warn:#b45309; --warn-light:#fef3c7;
+  --bad:#b91c1c; --bad-light:#fee2e2;
+  --good:#15803d; --good-light:#dcfce7;
+  --chip:#eef2f6;
+  --code-bg:#f1f5f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#12181c; --card:#1a2226; --text:#e7edf0; --muted:#9aa7ad; --border:#2a343a;
+    --accent:#2dd4bf; --accent-light:#0d3733; --accent-dark:#5eead4;
+    --warn:#fbbf24; --warn-light:#3a2f10;
+    --bad:#f87171; --bad-light:#3a1414;
+    --good:#4ade80; --good-light:#0f2f1a;
+    --chip:#222c31;
+    --code-bg:#0f1519;
+  }
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;line-height:1.6;}
+a{color:var(--accent);}
+header.top{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;}
+header.top h1{font-size:17px;margin:0;font-weight:700;}
+header.top .sub{font-size:12.5px;color:var(--muted);margin-top:2px;}
+.searchbox{flex:1;min-width:220px;max-width:420px;}
+.searchbox input{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;}
+.layout{display:flex;max-width:1180px;margin:0 auto;gap:0;align-items:flex-start;}
+nav.side{position:sticky;top:66px;width:270px;flex-shrink:0;padding:20px 14px;max-height:calc(100vh - 66px);overflow-y:auto;}
+nav.side a{display:flex;justify-content:space-between;gap:8px;padding:9px 10px;border-radius:8px;color:var(--text);text-decoration:none;font-size:13.5px;margin-bottom:2px;}
+nav.side a:hover{background:var(--chip);}
+nav.side a.active{background:var(--accent-light);color:var(--accent-dark);font-weight:600;}
+nav.side .count{color:var(--muted);font-size:11.5px;}
+main{flex:1;min-width:0;padding:20px 20px 80px;}
+.intro{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:22px;}
+.intro h2{margin-top:0;font-size:16px;}
+.intro p{font-size:13.8px;color:var(--muted);margin:6px 0;}
+.intro .flags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.flag{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--muted);}
+.chapter{margin-bottom:38px;}
+.chapter h2{font-size:19px;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:4px;}
+.chapter .chsub{font-size:12.8px;color:var(--muted);margin-bottom:14px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px;}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.badge{font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;}
+.badge.src{background:var(--chip);color:var(--muted);}
+.badge.topic{background:var(--accent-light);color:var(--accent-dark);}
+.badge.flag-incomplete{background:var(--warn-light);color:var(--warn);}
+.stem{font-size:14.8px;font-weight:600;margin:6px 0 10px;white-space:pre-line;}
+.choices{list-style:none;padding:0;margin:0 0 10px;}
+.choices li{font-size:13.8px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;color:var(--muted);}
+.choices li.correct{border-color:var(--good);background:var(--good-light);color:var(--good);font-weight:700;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13.5px;cursor:pointer;font-weight:600;}
+.toggle-btn:hover{opacity:.9;}
+.answer{display:none;margin-top:12px;border-top:1px dashed var(--border);padding-top:12px;}
+.answer.open{display:block;}
+.answer .ans-line{background:var(--good-light);color:var(--good);padding:8px 12px;border-radius:8px;font-size:14px;font-weight:700;margin-bottom:10px;}
+.answer .explain{font-size:13.8px;color:var(--text);}
+.answer .explain p{margin:6px 0;}
+.answer .explain ul{margin:6px 0;padding-left:20px;}
+.ref{margin-top:10px;font-size:12.3px;color:var(--muted);background:var(--code-bg);padding:8px 10px;border-radius:8px;}
+.ref code{color:var(--accent-dark);}
+.note-box{background:var(--warn-light);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:12.8px;margin-top:8px;}
+svg.diagram{max-width:100%;height:auto;display:block;margin:10px auto;}
+.diagram-wrap{background:var(--code-bg);border-radius:10px;padding:12px;margin:10px 0;overflow-x:auto;}
+.labbar-wrap{margin:6px 0;font-size:12px;}
+.labbar-label{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:2px;}
+footer{max-width:1180px;margin:0 auto;padding:30px 20px 60px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--border);}
+.progress{font-size:12px;color:var(--muted);}
+@media (max-width:860px){
+  nav.side{display:none;}
+  .layout{display:block;}
+  main{padding:16px;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div>
+    <h1>📚 คลังข้อสอบ Hemato-ID Block 2 — เฉลยละเอียด</h1>
+    <div class="sub">วิชา 59930263 โลหิตวิทยา ระบบท่อน้ำเหลืองและการติดเชื้อทางกระแสเลือด · คณะแพทยศาสตร์ ม.บูรพา · ปีการศึกษา 2569</div>
+  </div>
+  <div class="searchbox">
+    <input id="searchInput" type="text" placeholder="ค้นหาคำถาม, คำตอบ, หัวข้อ...">
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="side" id="sideNav"></nav>
+  <main>
+    <div class="intro">
+      <h2>เกี่ยวกับเอกสารนี้</h2>
+      <p><b>ที่มาของข้อสอบ:</b> รวบรวมจากไฟล์ "ข้อสอบ ปี 3 - Block 2.1 hemato.pdf" และ "ข้อสอบ ปี 3 - Block 2.2 hemato.pdf" ซึ่งเป็น<b>แบบฟอร์มรวบรวมความจำ (recall)</b> ของนิสิตหลังสอบ ไม่ใช่ไฟล์ข้อสอบต้นฉบับที่รั่วไหล ดังนั้นบางข้อโจทย์/ตัวเลือก/คำตอบอาจไม่ครบถ้วน 100% — เอกสารนี้จึงทำหน้าที่เป็น<b>สื่อทบทวนแนวข้อสอบ</b> เท่านั้น ไม่ใช่เฉลยที่ยืนยันจากผู้ออกข้อสอบ</p>
+      <p><b>วิธีอ่านเฉลย:</b> ทุกข้อมีเฉลยและคำอธิบายที่เขียนขึ้นใหม่จากหลักการทางเวชศาสตร์ (ไม่ใช่แค่คัดคำตอบที่นิสิตจำมา) พร้อมอ้างอิงว่าควรไปอ่านเพิ่มเติมจากเอกสารไฟล์ใดในโฟลเดอร์ที่จัดหมวดหมู่ไว้ให้แล้ว</p>
+      <p><b>ข้อควรระวัง:</b> ข้อที่มีป้าย <span class="badge flag-incomplete">ข้อมูลไม่ครบ</span> หมายความว่าโจทย์/ตัวเลือกที่จำมาไม่สมบูรณ์พอจะฟันธงคำตอบได้ 100% — ให้ใช้เป็นแนวทางค้นคว้าเพิ่มเติม ไม่ใช่คำตอบสุดท้าย</p>
+      <div class="flags">
+        <span class="flag" id="totalCount">กำลังนับ...</span>
+        <span class="flag">แหล่งที่มา 2 ไฟล์ (Block 2.1 + Block 2.2)</span>
+        <span class="flag">11 บทเรียน</span>
+      </div>
+    </div>
+    <div id="chapters"></div>
+  </main>
+</div>
+
+<footer>
+  จัดทำเพื่อการทบทวนส่วนตัวของนิสิตแพทย์ ไม่ใช่เอกสารทางการของภาควิชา · อ้างอิงตำราหลัก: Harrison's Principles of Internal Medicine 20e, พยาธิวิทยาคลินิก, Lecture Notes Clinical Pathology, ตำราโลหิตวิทยา (วิชัย ประยูรวิวัฒน์), Ryan &amp; Sherris Medical Microbiology 8e, Goodman &amp; Gilman's 13e (ตามคู่มือนิสิต Block Hemato-ID_130769)
+</footer>
+
+<script>
+// ---------- helper: normal-range comparison bar (SVG) ----------
+function labBar(label, value, lo, hi, scaleMax, unit){
+  scaleMax = scaleMax || hi*1.6;
+  var W=280,H=34;
+  var x = v => 4 + (v/scaleMax)*(W-8);
+  var loX = x(lo), hiX = x(hi), valX = Math.min(x(value), W-6);
+  var inRange = value>=lo && value<=hi;
+  var color = inRange ? 'var(--good)' : 'var(--bad)';
+  return '<div class="labbar-wrap"><div class="labbar-label"><span>'+label+'</span><span style="color:'+color+';font-weight:700">'+value+' '+(unit||'')+' '+(inRange?'(ปกติ)':'(ผิดปกติ)')+'</span></div>'+
+  '<svg class="diagram" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'+
+  '<rect x="4" y="14" width="'+(W-8)+'" height="8" rx="4" fill="var(--border)"/>'+
+  '<rect x="'+loX+'" y="14" width="'+(hiX-loX)+'" height="8" rx="4" fill="var(--good)" opacity="0.35"/>'+
+  '<line x1="'+valX+'" y1="6" x2="'+valX+'" y2="28" stroke="'+color+'" stroke-width="3"/>'+
+  '<circle cx="'+valX+'" cy="18" r="4" fill="'+color+'"/>'+
+  '</svg></div>';
+}
+window.labBar = labBar;
+</script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
